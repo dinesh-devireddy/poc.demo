@@ -1,6 +1,4 @@
-package com.test.poc.demo;
-
-
+package com.test.poc.demo.utils;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,18 +13,15 @@ import org.apache.poi.xssf.usermodel.XSSFDrawing;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.test.poc.demo.utils.CreateFile;
+//import com.test.poc.demo.model.Customer;
 
-
-public class Application {
-
-	public static void main(String[] args) throws IOException {
-		Application obj=new Application();
-		obj.createExcel();
-		
-	}
+public class CreateFile {
 	
-public void createExcel() throws IOException {
+	
+	
+	//private List<Customer>customers;
+	
+	public void createExcel() throws IOException {
 		
 		XSSFSheet sheet;
 		XSSFWorkbook workbook;
@@ -79,16 +74,16 @@ public void createExcel() throws IOException {
 			
 			XSSFClientAnchor ironManAnchor = new XSSFClientAnchor();
 			
-			ironManAnchor.setCol1(2); 
-			ironManAnchor.setCol2(3); 
-			ironManAnchor.setRow1(i); 
-			ironManAnchor.setRow2(i+1); 
+			ironManAnchor.setCol1(1); 
+			ironManAnchor.setCol2(2); 
+			ironManAnchor.setRow1(0); 
+			ironManAnchor.setRow2(i); 
 			
 			drawing.createPicture(ironManAnchor, inputImagePictureID);
 			
 			
 		}
-		for (int j = 0; j < 4; j++) {
+		for (int j = 0; j < 3; j++) {
 		    sheet.autoSizeColumn(j);
 		}
 		
@@ -96,5 +91,4 @@ public void createExcel() throws IOException {
 		    workbook.write(saveExcel);
 		}
 	}
-
 }
